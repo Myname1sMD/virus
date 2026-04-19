@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Компьютерлік вирустар тақырыбы бойынша сұрақнама">
+  <title>Сұрақнама — компьютерлік вирустар</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --text: #e8edf4;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-dim: #0ea5e9;
+      --safe: #34d399;
+      --border: rgba(148, 163, 184, 0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height:1.6;
+      font-size: 1.05rem;
+    }
+
+    .top {
+      padding: 1.5rem 1.5rem 0;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .back {
+      display: inline-block;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .back:hover { color: #7dd3fc; }
+
+    .hero {
+      padding: 0 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.35rem, 4vw, 1.85rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p { color: var(--muted); font-size: 0.98rem; }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .q {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.35rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .q h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .q label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-bottom: 0.65rem;
+      cursor: pointer;
+      font-size: 0.98rem;
+    }
+
+    .q label:last-child { margin-bottom: 0; }
+
+    .q input { margin-top: 0.35rem; accent-color: var(--accent-dim); }
+
+    .actions {
+      margin-top: 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    button {
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.65rem 1.35rem;
+      border-radius: 10px;
+      border: none;
+      background: linear-gradient(180deg, var(--accent-dim), #0284c7);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover { filter: brightness(1.08); }
+
+    button.secondary {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    #result {
+      margin-top: 1.5rem;
+      padding: 1rem 1.15rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(52, 211, 153, 0.1);
+      display: none;
+    }
+
+    #result.show { display: block; }
+
+    #result strong { color: var(--safe); }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <a class="back" href="index.html">← Басты бетке оралу</a>
+  </div>
+
+  <header class="hero">
+    <h1>Тақырып бойынша сұрақнама</h1>
+    <p>Компьютерлік вирустар және қорғану — бір дұрыс жауапты таңдаңыз.</p>
+  </header>
+
+  <main class="container">
+    <form id="quiz-form">
+      <div class="q" data-correct="a">
+        <h2>1. Компьютерлік вирус деген не?</h2>
+        <label><input type="radio" name="q1" value="a"> Өздігінен көбейіп, жүйеге зиян келтіруі мүмкін арнайы бағдарламалық код</label>
+        <label><input type="radio" name="q1" value="b"> Тек интернет браузері</label>
+        <label><input type="radio" name="q1" value="c"> Компьютердің физикалық бөлшегі</label>
+      </div>
+
+      <div class="q" data-correct="b">
+        <h2>2. Вирустар негізінен қалай таралады?</h2>
+        <label><input type="radio" name="q2" value="a"> Тек қағаз құжаттар арқылы</label>
+        <label><input type="radio" name="q2" value="b"> Электрондық пошта, жүктелген файлдар, USB және т.б.</label>
+        <label><input type="radio" name="q2" value="c"> Тек монитор арқылы</label>
+      </div>
+
+      <div class="q" data-correct="c">
+        <h2>3. Шифрлаушы (ransomware) не істейді?</h2>
+        <label><input type="radio" name="q3" value="a"> Компьютерді жылдамдатады</label>
+        <label><input type="radio" name="q3" value="b"> Тек пароль ұзартпайды</label>
+        <label><input type="radio" name="q3" value="c"> Файлдарды шифрлап, ақша төлеуді талап етуі мүмкін</label>
+      </div>
+
+      <div class="q" data-correct="a">
+        <h2>4. Қорғану үшін не маңызды?</h2>
+        <label><input type="radio" name="q4" value="a"> Антивирусты жаңартып тұру және күшті парольдер қолдану</label>
+        <label><input type="radio" name="q4" value="b"> Антивирусты мүлдем өшіру</label>
+        <label><input type="radio" name="q4" value="c"> Барлық сілтемелерді сұраусыз ашу</label>
+      </div>
+
+      <div class="q" data-correct="b">
+        <h2>5. Маңызды деректерді қалай қорғауға болады?</h2>
+        <label><input type="radio" name="q5" value="a"> Тек экранға жазу</label>
+        <label><input type="radio" name="q5" value="b"> Сақтық көшірме жасау (бұлт немесе сыртқы диск)</label>
+        <label><input type="radio" name="q5" value="c"> Парольді барлық адамға айту</label>
+      </div>
+
+      <div class="actions">
+        <button type="submit">Нәтижені көрсету</button>
+        <button type="button" class="secondary" id="reset-btn">Қайта бастау</button>
+      </div>
+    </form>
+
+    <div id="result" role="status" aria-live="polite"></div>
+  </main>
+
+  <footer>
+    <p>Автор: Сұлтан Гүлнұр</p>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById("quiz-form");
+      var result = document.getElementById("result");
+      var resetBtn = document.getElementById("reset-btn");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var blocks = form.querySelectorAll(".q");
+        var total = blocks.length;
+        var score = 0;
+        var unanswered = [];
+
+        blocks.forEach(function (block, i) {
+          var name = "q" + (i + 1);
+          var chosen = form.querySelector('input[name="' + name + '"]:checked');
+          var correct = block.getAttribute("data-correct");
+          if (!chosen) {
+            unanswered.push(i + 1);
+            return;
+          }
+          if (chosen.value === correct) score++;
+        });
+
+        if (unanswered.length) {
+          result.className = "show";
+          result.style.background = "rgba(248, 113, 113, 0.12)";
+          result.style.borderColor = "rgba(248, 113, 113, 0.35)";
+          result.innerHTML =
+            "<strong>Барлық сұрақтарға жауап беріңіз.</strong> Жауапсыз нөмірлер: " +
+            unanswered.join(", ") +
+            ".";
+          return;
+        }
+
+        result.className = "show";
+        result.style.background = "rgba(52, 211, 153, 0.1)";
+        result.style.borderColor = "rgba(52, 211, 153, 0.25)";
+        result.innerHTML =
+          "<strong>Нәтиже:</strong> " +
+          score +
+          " / " +
+          total +
+          " дұрыс жауап. " +
+          (score === total
+            ? "Керемет!"
+            : score >= total - 1
+              ? "Жақсы нәтиже."
+              : "Материалды қайта оқыңыз.");
+      });
+
+      resetBtn.addEventListener("click", function () {
+        form.reset();
+        result.className = "";
+        result.textContent = "";
+      });
+    })();
+  </script>
+</body>
+</html>
