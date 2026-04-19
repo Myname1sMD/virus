@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Компьютерлік вирустар туралы және олардан қорғану жолдары">
+  <title>Компьютерлік вирустар: олардан қалай қорғануға болады?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --text: #e8edf4;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-dim: #0ea5e9;
+      --safe: #34d399;
+      --border: rgba(148, 163, 184, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 1.05rem;
+    }
+
+    .hero {
+      min-height: 42vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 1.5rem 4rem;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -20%, rgba(56, 189, 248, 0.22), transparent),
+        linear-gradient(180deg, #111827 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.6rem, 4.5vw, 2.35rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+
+    .hero .subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    section {
+      margin-bottom: 2.75rem;
+    }
+
+    section:last-of-type {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      margin: 0.75rem 0 1rem 1.25rem;
+      color: var(--text);
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    li::marker {
+      color: var(--accent-dim);
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.35rem;
+      margin-top: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.65rem;
+      color: var(--safe);
+    }
+
+    .tip {
+      margin-top: 1.25rem;
+      padding: 1rem 1.15rem;
+      border-left: 3px solid var(--accent);
+      background: rgba(56, 189, 248, 0.08);
+      border-radius: 0 8px 8px 0;
+      font-size: 0.98rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+
+    nav.toc {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    nav.toc a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    nav.toc a:hover {
+      border-color: var(--accent-dim);
+      color: #7dd3fc;
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding-top: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Компьютерлік вирустар: олардан қалай қорғануға болады?</h1>
+      <p class="subtitle">Қазіргі ақпараттық технологиялар әлемінде вирустар мен зиянды бағдарламалардан сақтану — әр пайдаланушының негізгі дағдыларының бірі.</p>
+      <nav class="toc" aria-label="Мазмұнға өту">
+        <a href="#tanisu">Танысу</a>
+        <a href="#turleri">Түрлері</a>
+        <a href="#belgiler">Белгілері</a>
+        <a href="#korghanu">Қорғану</a>
+        <a href="quiz.html">Сұрақнама (тест)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="tanisu">
+      <h2>Компьютерлік вирус деген не?</h2>
+      <p>
+        <strong>Компьютерлік вирус</strong> — өздігінен көбейіп, басқа бағдарламаларға немесе файлдарға еніп, олардың жұмысын бұзатын немесе жүйеге зиян келтіретін арнайы жазылған код. Вирустар жүйені баяулатады, деректерді жояды немесе ұрлайды, сіздің компьютеріңізді басқа құрылғыларға шабуыл жасау үшін пайдалануға мүмкіндік береді.
+      </p>
+      <p>
+        Вирустар тек «жұқтырған» файл немесе сілтеме арқылы таралады: электрондық пошта, интернеттен жүктелген бағдарламалар, USB-флешкалар және т.б. Сондықтан сақтық шараларын білу және қолдану маңызды.
+      </p>
+    </section>
+
+    <section id="turleri">
+      <h2>Негізгі түрлері</h2>
+      <div class="card">
+        <h3>Файлдық вирустар</h3>
+        <p>Орындалатын (.exe) немесе құжат файлдарына бекінеді, файл ашылғанда белсенді болады.</p>
+      </div>
+      <div class="card">
+        <h3>Тор вирустары (червь)</h3>
+        <p>Желіде өздігінен таралады, электрондық пошта немесе әлсіз парольдер арқылы басқа компьютерлерге өтеді.</p>
+      </div>
+      <div class="card">
+        <h3>Трояндық атқыштар</h3>
+        <p>Пайдалы бағдарлама сияқты көрінеді, бірақ ішінде жасырын қауіп бар: артқы есік ашу, дерек ұрлау.</p>
+      </div>
+      <div class="card">
+        <h3>Шифрлаушы (ransomware)</h3>
+        <p>Файлдарды шифрлап, ақша төлеуді талап етеді; сақтық көшірмесіз қалпына келтіру қиын.</p>
+      </div>
+    </section>
+
+    <section id="belgiler">
+      <h2>Жұқтырудың мүмкін белгілері</h2>
+      <ul>
+        <li>Компьютер себепсіз баяу жұмыс істейді немесе жиі тоқтайды.</li>
+        <li>Бағдарламалар өздігінен ашылады немесе жабылады.</li>
+        <li>Интернет-трафик себепсіз артады.</li>
+        <li>Антивирус өшірілген немесе жаңартуға кедергі келеді.</li>
+        <li>Таныс емес хабарламалар достардан электрондық поштада келеді.</li>
+      </ul>
+      <p class="tip">Егер мұндай белгілер байқалса, дереу толық жүйелік тексеруді жүргізіңіз және күдікті файлдарды ашпаңыз.</p>
+    </section>
+
+    <section id="korghanu">
+      <h2>Қалай қорғануға болады?</h2>
+      <ul>
+        <li><strong>Сенімді антивирус</strong> орнатып, вирус анықтамаларын үнемі жаңартыңыз.</li>
+        <li><strong>Операциялық жүйені</strong> және бағдарламаларды жаңартулармен жаңартып тұрыңыз.</li>
+        <li><strong>Күшті парольдер</strong> қолданыңыз; әртүрлі сайттарда бірдей парольді қайталамаңыз.</li>
+        <li><strong>Таныс емес сілтемелерді</strong> және күдікті тіркемелерді ашпаңыз.</li>
+        <li><strong>Ресми сайттардан</strong> ғана бағдарламалар жүктеңіз.</li>
+        <li><strong>Маңызды деректердің сақтық көшірмесін</strong> сыртқы дискке немесе бұлтқа сақтаңыз.</li>
+        <li>Мүмкін болса, <strong>екі факторлы аутентификацияны</strong> (2FA) қосыңыз.</li>
+      </ul>
+      <p class="tip">Қорғану — бір реттік іс емес: үнемі сақтық шараларын қайталау және интернетте сақ жүру әдеті қажет.</p>
+      <p class="tip" style="margin-top: 1rem; border-left-color: var(--safe); background: rgba(52, 211, 153, 0.08);">
+        Тақырыпты бекіту үшін қысқа сұрақнаманы орындаңыз: <a href="quiz.html" style="color: var(--accent); font-weight: 600;">сұрақнамаға өту</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Автор: Сұлтан Гүлнұр</p>
+  </footer>
+</body>
+</html>
